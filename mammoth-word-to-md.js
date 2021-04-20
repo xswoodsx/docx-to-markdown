@@ -7,28 +7,30 @@ import stringify from 'remark-stringify';
 import prettier from 'prettier';
 
 
-let coreInductionProgrammes = ["Ambition", "EDT", "Teach-First", "UCL"]
+let coreInductionProgrammes = ["Ambition"]
 
 
- function convertToMarkdown() {
+ async function convertToMarkdown() {
     coreInductionProgrammes.forEach((programme) => {
         fs.readdir((`./mentormats/${programme}`), (err, folder) => {
-            fs.mkdir((`./mentormats/mammoth-saved-html/${programme}`), () => {
+            fs.mkdir((`./mentormats/mammoth-saved-md/${programme}`), () => {
                 folder = folder.filter(f => !f.startsWith("."))
                 folder.forEach((block) => {
                     fs.readdir((`./mentormats/${programme}/${block}`), (err, files) => {
                         files = files.filter(f => !f.startsWith("."))
                         files.map((file) => {
-                                mammoth.convertToHtml({path: `./mentormats/${programme}/${block}/${file}`}).then((result) => {
-                                    const markdown = parseMarkdown(result)
-                                    if (fs.existsSync(`./mentormats/mammoth-saved-html/${programme}/${block}`)) {
+                                mammoth.convertToHtml({path: `./mentormats/${programme}/${block}/${file}`}).then(async(result) => {
+                                    console.log("before processing html")
+                                    const markdown = await parseMarkdown(result)
+                                    console.log("after processing html")
+                                    if (fs.existsSync(`./mentormats/mammoth-saved-md/${programme}/${block}`)) {
 
-                                        fs.writeFile(`./mentormats/mammoth-saved-html/${programme}/${block}/${file.replace(".docx", ".md")}`, markdown, (err) => {
+                                        fs.writeFile(`./mentormats/mammoth-saved-md/${programme}/${block}/${file.replace(".docx", ".mdx")}`, markdown, (err) => {
                                             if (err) throw err
                                             else console.log("it was saved")
                                         })
-                                    } else fs.mkdir((`./mentormats/mammoth-saved-html/${programme}/${block}`), () => {
-                                        fs.writeFile(`./mentormats/mammoth-saved-html/${programme}/${block}/${file.replace(".docx", ".md")}`, markdown, (err) => {
+                                    } else fs.mkdir((`./mentormats/mammoth-saved-md/${programme}/${block}`), () => {
+                                        fs.writeFile(`./mentormats/mammoth-saved-md/${programme}/${block}/${file.replace(".docx", ".mdx")}`, markdown, (err) => {
                                             if (err) throw err
                                             else console.log("it was saved")
                                         })
@@ -58,6 +60,7 @@ function parseMarkdown(data) {
                 pedantic: false,
             })
             .process(data, (err, dirtyMarkdown) => {
+                console.log("in the process")
                 if (err) {
                     reject(err);
                 } else {
