@@ -1,76 +1,43 @@
-import mammoth from "mammoth";
-import fs from "fs";
-import fsPromises from "fs/promises";
-import unified from "unified";
-import parseHTML from "rehype-parse";
-import rehype2remark from "rehype-remark";
-import stringify from "remark-stringify";
-import prettier from "prettier";
+import { readdir, mkdir } from "fs/promises";
+import {
+  removeHiddenFiles,
+  convertUsingMammoth,
+  writeFileToMarkdown,
+  parseMarkdown,
+} from "./conversion-utils.js";
 
-let coreInductionProgrammes = ["Ambition"];
+const coreInductionProgrammes = ["Teach-First"];
+// const coreInductionProgrammes = ["Ambition", "EDT", "Teach-First", "UCL"];
 
-async function convertToMarkdown() {
-  coreInductionProgrammes.forEach((programme) => {
-    fsPromises
-      .mkdir(`./mentormats/mammoth-saved-md/${programme}`)
-      .then(async () => {
-        const folders = await fsPromises.readdir(`./mentormats/${programme}`);
-        for await (const folder of folders)
-          fsPromises
-            .mkdir(`./mentormats/mammoth-saved-md/${programme}/${folder}`)
-            .then(async () => {
-              const files = await fsPromises.readdir(
-                `./mentormats/${programme}/${folder}`
-              );
-              for await (const file of files)
-                mammoth
-                  .convertToHtml({
-                    path: `./mentormats/${programme}/${folder}/${file}`,
-                  })
-                  .then(async (result) => {
-                    const markdown = await parseMarkdown(result);
-                    fsPromises.writeFile(
-                      `./mentormats/mammoth-saved-md/${programme}/${folder}/${file.replace(
-                        ".docx",
-                        ".mdx"
-                      )}`,
-                      markdown
-                    );
-                  })
-                  .then(() => {
-                    console.log("it was saved");
-                  });
-            });
-      });
-  });
+async function findAndCreateFolders() {
+  for await (const programme of coreInductionProgrammes) {
+    mkdir(`./mentormats/mammoth-saved-md/${programme}`).then(async () => {
+      const folders = await readdir(`./mentormats/${programme}`);
+      for await (const folder of removeHiddenFiles(folders)) {
+        mkdir(`./mentormats/mammoth-saved-md/${programme}/${folder}`).then(
+          async () => {
+            await convertFilesInSubDirectoriesToMarkdown(programme, folder);
+          }
+        );
+      }
+    });
+  }
 }
 
-function parseMarkdown(data) {
-  return new Promise((resolve, reject) => {
-    unified()
-      .use(parseHTML, {
-        fragment: true,
-        emitParseErrors: true,
-        duplicateAttribute: false,
-      })
-      .use(rehype2remark)
-      .use(stringify, {
-        fences: true,
-        listItemIndent: 1,
-        gfm: false,
-        pedantic: false,
-      })
-      .process(data, (err, dirtyMarkdown) => {
-        if (err) {
-          reject(err);
-        } else {
-          // actual mdx string
-          let content = dirtyMarkdown.value;
-          content = content.replace(/(?<=https?:\/\/.*)\\_(?=.*\n)/g, "_");
-          resolve(prettier.format(content, { parser: "mdx" }));
-        }
+async function convertFilesInSubDirectoriesToMarkdown(programme, folder) {
+  try {
+    const files = await readdir(`./mentormats/${programme}/${folder}`);
+    for await (const file of removeHiddenFiles(files)) {
+      convertUsingMammoth(programme, folder, file).then(async (result) => {
+        const markdown = await parseMarkdown(result);
+        writeFileToMarkdown(markdown, programme, folder, file).then(() =>
+          console.log("it was saved")
+        );
       });
-  });
+    }
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-convertToMarkdown();
+findAndCreateFolders();
