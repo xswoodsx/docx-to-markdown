@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="ModuleRunConfigurationManager">
+    <shared />
+  </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/features" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/cache" />
+    </content>
+    <orderEntry type="jdk" jdkName="RVM: ruby-2.7.2" jdkType="RUBY_SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="addressable (vbundled(2.7.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/addressable-2.7.0/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/addressable-2.7.0/data" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/addressable-2.7.0/spec" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/addressable-2.7.0/tasks" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/addressable-2.7.0/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/addressable-2.7.0/data" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/addressable-2.7.0/spec" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/addressable-2.7.0/tasks" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/addressable-2.7.0/data" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/addressable-2.7.0/spec" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/addressable-2.7.0/tasks" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="cliver (vbundled(0.3.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/cliver-0.3.2/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/cliver-0.3.2/spec" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/cliver-0.3.2/.githooks" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/cliver-0.3.2/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/cliver-0.3.2/spec" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/cliver-0.3.2/.githooks" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/cliver-0.3.2/spec" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/cliver-0.3.2/.githooks" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="css_parser (vbundled(1.9.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/css_parser-1.9.0/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/css_parser-1.9.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="descriptive_statistics (vbundled(2.5.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/descriptive_statistics-2.5.1/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/descriptive_statistics-2.5.1/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ffi (vbundled(1.15.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/ffi-1.15.0/ext" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/ffi-1.15.0/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/ffi-1.15.0/rakelib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/ffi-1.15.0/samples" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/ffi-1.15.0/ext" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/ffi-1.15.0/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/ffi-1.15.0/rakelib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/ffi-1.15.0/samples" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/ffi-1.15.0/ext" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/ffi-1.15.0/rakelib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/ffi-1.15.0/samples" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="htmlentities (vbundled(4.3.4)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/htmlentities-4.3.4/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/htmlentities-4.3.4/perf" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/htmlentities-4.3.4/test" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/htmlentities-4.3.4/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/htmlentities-4.3.4/perf" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/htmlentities-4.3.4/test" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/htmlentities-4.3.4/perf" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/htmlentities-4.3.4/test" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="nokogiri (vbundled(1.11.3)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/nokogiri-1.11.3-x86_64-darwin/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/nokogiri-1.11.3-x86_64-darwin/ext" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/nokogiri-1.11.3-x86_64-darwin/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/nokogiri-1.11.3-x86_64-darwin/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/nokogiri-1.11.3-x86_64-darwin/ext" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/nokogiri-1.11.3-x86_64-darwin/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/nokogiri-1.11.3-x86_64-darwin/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/nokogiri-1.11.3-x86_64-darwin/ext" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="nokogiri-styles (vbundled(0.1.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/nokogiri-styles-0.1.2/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/nokogiri-styles-0.1.2/test" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/nokogiri-styles-0.1.2/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/nokogiri-styles-0.1.2/test" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/nokogiri-styles-0.1.2/test" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="pandoc-ruby (vbundled(2.1.4)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/pandoc-ruby-2.1.4/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/pandoc-ruby-2.1.4/test" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/pandoc-ruby-2.1.4/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/pandoc-ruby-2.1.4/test" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/pandoc-ruby-2.1.4/test" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="premailer (vbundled(1.14.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/premailer-1.14.2/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/premailer-1.14.2/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/premailer-1.14.2/misc" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/premailer-1.14.2/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/premailer-1.14.2/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/premailer-1.14.2/misc" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/premailer-1.14.2/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/premailer-1.14.2/misc" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="public_suffix (vbundled(4.0.6)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/public_suffix-4.0.6/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/public_suffix-4.0.6/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/public_suffix-4.0.6/data" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/public_suffix-4.0.6/test" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/public_suffix-4.0.6/.github" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/public_suffix-4.0.6/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/public_suffix-4.0.6/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/public_suffix-4.0.6/data" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/public_suffix-4.0.6/test" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/public_suffix-4.0.6/.github" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/public_suffix-4.0.6/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/public_suffix-4.0.6/data" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/public_suffix-4.0.6/test" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/public_suffix-4.0.6/.github" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="racc (vbundled(1.5.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/ext" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/web" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/rdoc" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/test" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/sample" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/ext" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/web" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/rdoc" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/test" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/sample" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/ext" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/web" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/rdoc" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/test" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/racc-1.5.2/sample" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="reverse_markdown (vbundled(1.4.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/reverse_markdown-1.4.0/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/reverse_markdown-1.4.0/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/reverse_markdown-1.4.0/spec" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/reverse_markdown-1.4.0/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/reverse_markdown-1.4.0/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/reverse_markdown-1.4.0/spec" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/reverse_markdown-1.4.0/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/reverse_markdown-1.4.0/spec" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="sys-proctable (vbundled(1.2.6)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/sys-proctable-1.2.6/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/sys-proctable-1.2.6/spec" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/sys-proctable-1.2.6/examples" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/sys-proctable-1.2.6/benchmarks" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/sys-proctable-1.2.6/lib" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/sys-proctable-1.2.6/spec" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/sys-proctable-1.2.6/examples" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/sys-proctable-1.2.6/benchmarks" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/sys-proctable-1.2.6/spec" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/sys-proctable-1.2.6/examples" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/sys-proctable-1.2.6/benchmarks" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="word-to-markdown (vbundled(1.1.8)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/word-to-markdown-1.1.8/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/word-to-markdown-1.1.8/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/word-to-markdown-1.1.8/bin" />
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/word-to-markdown-1.1.8/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/.bundle/ruby/2.7.0/gems/word-to-markdown-1.1.8/bin" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.2.16, RVM: ruby-2.7.2) [gem]" level="application" />
+  </component>
+</module>

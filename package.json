@@ -1,0 +1,28 @@
+{
+  "name": "pandoc-converter.no_sync",
+  "version": "1.0.0",
+  "description": "DOCX to MARKDOWN converter",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xswoodsx/docx-to-markdown.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xswoodsx/docx-to-markdown/issues"
+  },
+  "homepage": "https://github.com/xswoodsx/docx-to-markdown#readme",
+  "dependencies": {
+    "mammoth": "^1.4.16",
+    "prettier": "^2.2.1",
+    "rehype-parse": "^7.0.1",
+    "rehype-remark": "^8.0.0",
+    "remark-stringify": "^9.0.1",
+    "unified": "^9.2.1"
+  }
+}
