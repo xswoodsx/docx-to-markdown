@@ -28,9 +28,7 @@ async function convertToMarkdown() {
                     path: `./mentormats/${programme}/${folder}/${file}`,
                   })
                   .then(async (result) => {
-                    console.log("before processing html");
                     const markdown = await parseMarkdown(result);
-                    console.log("after processing html");
                     fsPromises.writeFile(
                       `./mentormats/mammoth-saved-md/${programme}/${folder}/${file.replace(
                         ".docx",
@@ -63,7 +61,6 @@ function parseMarkdown(data) {
         pedantic: false,
       })
       .process(data, (err, dirtyMarkdown) => {
-        console.log("in the process");
         if (err) {
           reject(err);
         } else {
