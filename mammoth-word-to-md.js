@@ -1,9 +1,8 @@
 import { readdir, mkdir } from "fs/promises";
 import {
   removeHiddenFiles,
-  convertUsingMammoth,
   writeFileToMarkdown,
-  parseMarkdown,
+  parseMarkdown, convertToHtmlUsingMammoth,
 } from "./conversion-utils.js";
 
 const coreInductionProgrammes = ["Teach-First"];
@@ -11,12 +10,12 @@ const coreInductionProgrammes = ["Teach-First"];
 
 async function findAndCreateFolders() {
   for await (const programme of coreInductionProgrammes) {
-    mkdir(`./mentormats/mammoth-saved-md/${programme}`).then(async () => {
-      const folders = await readdir(`./mentormats/${programme}`);
+    mkdir(`./converted-files/mammoth-saved-md/${programme}`).then(async () => {
+      const folders = await readdir(`./${programme}`);
       for await (const folder of removeHiddenFiles(folders)) {
-        mkdir(`./mentormats/mammoth-saved-md/${programme}/${folder}`).then(
+        mkdir(`./converted-files/mammoth-saved-md/${programme}/${folder}`).then(
           async () => {
-            await convertFilesInSubDirectoriesToMarkdown(programme, folder);
+            await convertAndWriteFilesToMarkdown(programme, folder);
           }
         );
       }
@@ -24,11 +23,11 @@ async function findAndCreateFolders() {
   }
 }
 
-async function convertFilesInSubDirectoriesToMarkdown(programme, folder) {
+async function convertAndWriteFilesToMarkdown(programme, folder) {
   try {
-    const files = await readdir(`./mentormats/${programme}/${folder}`);
+    const files = await readdir(`./${programme}/${folder}`);
     for await (const file of removeHiddenFiles(files)) {
-      convertUsingMammoth(programme, folder, file).then(async (result) => {
+      convertToHtmlUsingMammoth(programme, folder, file).then(async (result) => {
         const markdown = await parseMarkdown(result);
         writeFileToMarkdown(markdown, programme, folder, file).then(() =>
           console.log("it was saved")
