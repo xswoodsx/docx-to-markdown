@@ -5,20 +5,43 @@ import parseHTML from "rehype-parse";
 import rehype2remark from "rehype-remark";
 import stringify from "remark-stringify";
 import prettier from "prettier";
+import visit from "unist-util-visit";
 
 export const removeHiddenFiles = (path) => {
   return path.filter((p) => !p.startsWith("."));
 };
 
-export const convertUsingMammoth = (programme, folder, file) => {
-  return mammoth.convertToHtml({
-    path: `./mentormats/${programme}/${folder}/${file}`,
-  });
+export const convertToHtmlUsingMammoth = (programme, folder, file) => {
+  let imageIndex = 0;
+  const programmeFolderFileOfImage = `./images/${programme}/${folder}-${file.replace(".docx", "")}`;
+
+  let options = {
+    path: `./${programme}/${folder}/${file}`,
+    convertImage: mammoth.images.imgElement(function (image) {
+      return image.read("base64").then(function (imageBuffer) {
+        const suffix = image.contentType.split("/").pop();
+        const fileName = `${programmeFolderFileOfImage}-image${imageIndex}.${suffix}`;
+        imageIndex++;
+        writeFile(fileName, imageBuffer, "base64");
+        console.log("image save success.", fileName);
+        return {
+          src: fileName,
+        };
+      });
+    }),
+  };
+
+  return mammoth.convertToHtml(
+    {
+      path: `./${programme}/${folder}/${file}`,
+    },
+    options
+  );
 };
 
 export const writeFileToMarkdown = (markdown, programme, folder, file) => {
   return writeFile(
-    `./mentormats/mammoth-saved-md/${programme}/${folder}/${file.replace(
+    `./converted-files/mammoth-saved-md/${programme}/${folder}/${file.replace(
       ".docx",
       ".mdx"
     )}`,
