@@ -57,7 +57,7 @@ export const parseMarkdown = (data) => {
         emitParseErrors: true,
         duplicateAttribute: false,
       })
-      .use(rehype2remark)
+      .use(rehype2remark).use(fixHeadings).use(fixBoldText)
       .use(stringify, {
         fences: true,
         listItemIndent: 1,
@@ -76,3 +76,26 @@ export const parseMarkdown = (data) => {
       });
   });
 };
+
+function fixBoldText() {
+  return (tree) => {
+    visit(tree, "strong", (node) => {
+      node.children.map(
+          (child) => {
+            if (child.value) {
+              child.value = child.value.trim()
+            }})
+    });
+  };
+}
+function fixHeadings() {
+  return (tree) => {
+    visit(tree, "heading", (node) => {
+      node.children.map(
+          (child) => {
+            if (child.value) {
+              child.value = child.value.trim()
+            }})
+    });
+  };
+}
