@@ -13,7 +13,10 @@ export const removeHiddenFiles = (path) => {
 
 export const convertToHtmlUsingMammoth = (programme, folder, file) => {
   let imageIndex = 0;
-  const programmeFolderFileOfImage = `./images/${programme}/${folder}-${file.replace(".docx", "")}`;
+  const programmeFolderFileOfImage = `./images/${programme}/${folder}-${file.replace(
+    ".docx",
+    ""
+  )}`;
 
   let options = {
     path: `./${programme}/${folder}/${file}`,
@@ -29,6 +32,11 @@ export const convertToHtmlUsingMammoth = (programme, folder, file) => {
         };
       });
     }),
+    styleMap: [
+      "p[style-name='List Paragraph'] => ul > li:fresh",
+      "p[style-name='Text Body'] => ol > li:fresh",
+      "comment-reference => sup",
+    ],
   };
 
   return mammoth.convertToHtml(
@@ -57,7 +65,13 @@ export const parseMarkdown = (data) => {
         emitParseErrors: true,
         duplicateAttribute: false,
       })
-      .use(rehype2remark).use(fixHeadings).use(fixBoldText)
+      .use(rehype2remark)
+      .use(fixHeadings)
+      .use(fixBoldText)
+      .use(removeEmptyLinks)
+      .use(removeCells)
+      .use(removeRows)
+      .use(addNewLines)
       .use(stringify, {
         fences: true,
         listItemIndent: 1,
@@ -71,6 +85,7 @@ export const parseMarkdown = (data) => {
           // actual mdx string
           let content = dirtyMarkdown.contents;
           content = content.replace(/(?<=https?:\/\/.*)\\_(?=.*\n)/g, "_");
+          content = content.replace(/&lt;/g, "<");
           resolve(prettier.format(content, { parser: "mdx" }));
         }
       });
@@ -80,22 +95,70 @@ export const parseMarkdown = (data) => {
 function fixBoldText() {
   return (tree) => {
     visit(tree, "strong", (node) => {
-      node.children.map(
-          (child) => {
-            if (child.value) {
-              child.value = child.value.trim()
-            }})
+      node.children.map((child) => {
+        if (child.value) {
+          child.value = child.value.trim();
+        }
+      });
     });
   };
 }
 function fixHeadings() {
   return (tree) => {
     visit(tree, "heading", (node) => {
-      node.children.map(
-          (child) => {
-            if (child.value) {
-              child.value = child.value.trim()
-            }})
+      node.children.map((child) => {
+        if (child.value) {
+          child.value = child.value.trim();
+          child.value += "<br />";
+        }
+      });
+    });
+  };
+}
+
+function removeEmptyLinks() {
+  return (tree) => {
+    visit(tree, "link", (node, index, parent) => {
+      if (node.url === "") {
+        parent.children.splice(index, 1);
+        return [visit.SKIP, index];
+      }
+    });
+  };
+}
+
+function removeCells() {
+  return (tree) => {
+    visit(tree, "tableCell", (node, index, parent) => {
+      if (node.children.length == 0) {
+        parent.children.splice(index, 1);
+        return [visit.SKIP, index];
+      }
+    });
+  };
+}
+
+function removeRows() {
+  return (tree) => {
+    visit(tree, "table", (node, index, parent) => {
+      if (parent.type === "tableCell") {
+        node.type = "list";
+        node.children = node.children.filter(
+          (child) => child.children.length > 0
+        );
+      }
+    });
+  };
+}
+
+function addNewLines() {
+  return (tree) => {
+    visit(tree, "paragraph", (node, index, parent) => {
+      if (node.children.length > 1) {
+        node.children[node.children.length - 1].value += "<br />";
+      } else if (node.children.length === 1) {
+        node.children[0].value += "<br />";
+      }
     });
   };
 }
