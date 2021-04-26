@@ -66,12 +66,13 @@ export const parseMarkdown = (data) => {
         duplicateAttribute: false,
       })
       .use(rehype2remark)
-      .use(fixHeadings)
+      .use(removeBreaksFromTextHeadings)
       .use(fixBoldText)
+      .use(fixHeadingsToAddBreakAfterString)
       .use(removeEmptyLinks)
-      .use(removeCells)
-      .use(removeRows)
-      .use(addNewLines)
+      .use(removeEmptyCells)
+      .use(removeEmptyRows)
+      .use(addNewLinesToListsInTables)
       .use(stringify, {
         fences: true,
         listItemIndent: 1,
@@ -103,7 +104,7 @@ function fixBoldText() {
     });
   };
 }
-function fixHeadings() {
+function fixHeadingsToAddBreakAfterString() {
   return (tree) => {
     visit(tree, "heading", (node) => {
       node.children.map((child) => {
@@ -127,7 +128,7 @@ function removeEmptyLinks() {
   };
 }
 
-function removeCells() {
+function removeEmptyCells() {
   return (tree) => {
     visit(tree, "tableCell", (node, index, parent) => {
       if (node.children.length == 0) {
@@ -138,7 +139,7 @@ function removeCells() {
   };
 }
 
-function removeRows() {
+function removeEmptyRows() {
   return (tree) => {
     visit(tree, "table", (node, index, parent) => {
       if (parent.type === "tableCell") {
@@ -151,7 +152,7 @@ function removeRows() {
   };
 }
 
-function addNewLines() {
+function addNewLinesToListsInTables() {
   return (tree) => {
     visit(tree, "paragraph", (node, index, parent) => {
       if (node.children.length > 1) {
@@ -161,4 +162,12 @@ function addNewLines() {
       }
     });
   };
+}
+
+function removeBreaksFromTextHeadings() {
+  return (tree) => {
+    visit(tree, "text", (node, index, parent) => {
+      parent.children = parent.children.filter((child) => child.type !== "break")
+    })
+  }
 }
