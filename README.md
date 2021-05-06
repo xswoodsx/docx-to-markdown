@@ -2,6 +2,8 @@ DOCX to MARKDOWN conversion
 
 This is a script to convert docx documents to markdown using either pandoc, w2m, or mammoth. See links to each tool for further information on installation and requirements.
 
+Create a folder a folder in the dir called converted-files
+
 ### Using Pandoc or w2m
 
 The file-converter.rb function uses pandoc or w2m. You can run 
@@ -40,9 +42,9 @@ Both converters take an array, in this case folder names, loop through the folde
 
 For example
 
-````./mentormats/[CIP-NAME-folder]/[CIP-MODULE-folder]/[CIP-MATERIAL-DOCX-FILE]````
+````./[CIP-NAME-folder]/[CIP-MODULE-folder]/[CIP-MATERIAL-DOCX-FILE]````
 
 will spit out 
 
- `./mentormats/[CONVERSION-TOOL]/[CIP-NAME-folder]/[CIP-MODULE-folder]/[CIP-MATERIAL-MARKDOWN-FILE]`
+ `./converted-files/[CONVERSION-TOOL]/[CIP-NAME-folder]/[CIP-MODULE-folder]/[CIP-MATERIAL-MARKDOWN-FILE]`
 
