@@ -5,8 +5,16 @@ import parseHTML from "rehype-parse";
 import rehype2remark from "rehype-remark";
 import stringify from "remark-stringify";
 import prettier from "prettier";
-import visit from "unist-util-visit";
-
+import {
+  removeEmptyRows,
+  removeEmptyCells,
+  fixBoldText,
+  addBreakAfterBoldInTableCells,
+  fixHeadingsToAddBreakAfterString,
+  removeEmptyLinks,
+  addNewLinesToListsInTables,
+  removeBreaksFromTextHeadings,
+} from "./text-conversion-helpers";
 export const removeHiddenFiles = (path) => {
   return path.filter((p) => !p.startsWith("."));
 };
@@ -35,7 +43,7 @@ export const convertToHtmlUsingMammoth = (programme, folder, file) => {
     styleMap: [
       "p[style-name='List Paragraph'] => ul > li:fresh",
       "p[style-name='Text Body'] => ol > li:fresh",
-      "comment-reference => sup",
+      // "p[style-name='Heading 2'] => p:fresh > b:fresh",
     ],
   };
 
@@ -73,6 +81,7 @@ export const parseMarkdown = (data) => {
       .use(removeEmptyCells)
       .use(removeEmptyRows)
       .use(addNewLinesToListsInTables)
+      .use(addBreakAfterBoldInTableCells)
       .use(stringify, {
         fences: true,
         listItemIndent: 1,
@@ -85,89 +94,11 @@ export const parseMarkdown = (data) => {
         } else {
           // actual mdx string
           let content = dirtyMarkdown.contents;
-          content = content.replace(/(?<=https?:\/\/.*)\\_(?=.*\n)/g, "_");
-          content = content.replace(/&lt;/g, "<");
+
+
+          content = content.replace(/(?<=https?:\/\/.*)\\_(?=.*\n)/g, "_").replace(/&lt;/g, "<").replace(/\\[*]\\[*]/g, "").replace(/\\[*]/g, "")
           resolve(prettier.format(content, { parser: "mdx" }));
         }
       });
   });
 };
-
-function fixBoldText() {
-  return (tree) => {
-    visit(tree, "strong", (node) => {
-      node.children.map((child) => {
-        if (child.value) {
-          child.value = child.value.trim();
-        }
-      });
-    });
-  };
-}
-function fixHeadingsToAddBreakAfterString() {
-  return (tree) => {
-    visit(tree, "heading", (node) => {
-      node.children.map((child) => {
-        if (child.value) {
-          child.value = child.value.trim();
-          child.value += "<br />";
-        }
-      });
-    });
-  };
-}
-
-function removeEmptyLinks() {
-  return (tree) => {
-    visit(tree, "link", (node, index, parent) => {
-      if (node.url === "") {
-        parent.children.splice(index, 1);
-        return [visit.SKIP, index];
-      }
-    });
-  };
-}
-
-function removeEmptyCells() {
-  return (tree) => {
-    visit(tree, "tableCell", (node, index, parent) => {
-      if (node.children.length == 0) {
-        parent.children.splice(index, 1);
-        return [visit.SKIP, index];
-      }
-    });
-  };
-}
-
-function removeEmptyRows() {
-  return (tree) => {
-    visit(tree, "table", (node, index, parent) => {
-      if (parent.type === "tableCell") {
-        node.type = "list";
-        node.children = node.children.filter(
-          (child) => child.children.length > 0
-        );
-      }
-    });
-  };
-}
-
-function addNewLinesToListsInTables() {
-  return (tree) => {
-    visit(tree, "paragraph", (node, index, parent) => {
-      if (node.children.length > 1) {
-        node.children[node.children.length - 1].value += "<br />";
-      } else if (node.children.length === 1) {
-        node.children[0].value += "<br />";
-      }
-    });
-  };
-}
-
-function removeBreaksFromTextHeadings() {
-  return (tree) => {
-    visit(tree, "text", (node, index, parent) => {
-      parent.children = parent.children.filter((child) => child.type !== "break")
-    })
-  }
-}
