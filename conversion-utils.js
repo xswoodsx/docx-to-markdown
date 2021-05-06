@@ -14,7 +14,8 @@ import {
   removeEmptyLinks,
   addNewLinesToListsInTables,
   removeBreaksFromTextHeadings,
-} from "./text-conversion-helpers";
+} from "./text-conversion-helpers.js";
+
 export const removeHiddenFiles = (path) => {
   return path.filter((p) => !p.startsWith("."));
 };
@@ -94,7 +95,6 @@ export const parseMarkdown = (data) => {
         } else {
           // actual mdx string
           let content = dirtyMarkdown.contents;
-
 
           content = content.replace(/(?<=https?:\/\/.*)\\_(?=.*\n)/g, "_").replace(/&lt;/g, "<").replace(/\\[*]\\[*]/g, "").replace(/\\[*]/g, "")
           resolve(prettier.format(content, { parser: "mdx" }));
